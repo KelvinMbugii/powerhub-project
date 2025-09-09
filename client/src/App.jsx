@@ -1,11 +1,5 @@
-//<<<<<<< HEAD
 import React from 'react';
-//import { Routes, Route, Navigate } from 'react-router-dom';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-//=======
-
-//import { Routes, Route, Navigate } from 'react-router-dom';
-//>>>>>>> bab4266 (Faced a merge conflict)
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { useEffect } from 'react';
 import { trackPageVisit } from './utils/analytics';
@@ -34,14 +28,9 @@ import ITDashboard from './pages/ITDashboard'; // Added ITDashboard import
 import MaintenancePage from './pages/MaintenancePage';
 
 // Protected Route Component
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, loading, serverConnected } = useAuth();
 const ProtectedRoute = ({ children, requireRegularUser = false }) => {
   const { isAuthenticated, loading, serverConnected, user, maintenanceMode, maintenanceMessage } = useAuth();
-  
-//<<<<<<< HEAD
-main
-//>>>>>>> bab4266 (Faced a merge conflict)
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#181818]">
@@ -58,25 +47,21 @@ main
     );
   }
 
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
-
-  
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  
+
   // Check maintenance mode - only IT users can access during maintenance
   if (maintenanceMode && user && user.role !== 'IT') {
     return <MaintenancePage message={maintenanceMessage} />;
   }
-  
+
   // If this route requires regular users and the user is IT, redirect to IT dashboard
   if (requireRegularUser && user && user.role === 'IT') {
     return <Navigate to="/it-dashboard" replace />;
   }
-  
-  return children;
 
+  return children;
 };
 
 // Public Route Component (redirects to home if already authenticated)
@@ -174,7 +159,7 @@ function App() {
   return (
     <AuthProvider>
       <ProgressBar loading={loading} />
-        <AppRoutes />
+      <AppRoutes />
     </AuthProvider>
   );
 }
