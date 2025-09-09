@@ -1,16 +1,11 @@
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+//import { Routes, Route, Navigate } from 'react-router-dom';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-=======
-<<<<<<< Updated upstream
+//=======
 
-import { Routes, Route, Navigate } from 'react-router-dom';
-=======
-import React from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
->>>>>>> Stashed changes
->>>>>>> bab4266 (Faced a merge conflict)
+//import { Routes, Route, Navigate } from 'react-router-dom';
+//>>>>>>> bab4266 (Faced a merge conflict)
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { useEffect } from 'react';
 import { trackPageVisit } from './utils/analytics';
@@ -39,23 +34,14 @@ import ITDashboard from './pages/ITDashboard'; // Added ITDashboard import
 import MaintenancePage from './pages/MaintenancePage';
 
 // Protected Route Component
-<<<<<<< Updated upstream
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading, serverConnected } = useAuth();
 const ProtectedRoute = ({ children, requireRegularUser = false }) => {
   const { isAuthenticated, loading, serverConnected, user, maintenanceMode, maintenanceMessage } = useAuth();
   
-<<<<<<< HEAD
+//<<<<<<< HEAD
 main
-=======
-=======
-
-const ProtectedRoute = ({ children, requireRegularUser = false }) => {
-  const { isAuthenticated, loading, serverConnected, user, maintenanceMode, maintenanceMessage } = useAuth();
-  
-//main
->>>>>>> Stashed changes
->>>>>>> bab4266 (Faced a merge conflict)
+//>>>>>>> bab4266 (Faced a merge conflict)
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#181818]">
